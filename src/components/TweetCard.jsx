@@ -1,12 +1,11 @@
-import React, {memo, useState} from "react";
-import parseDate from '../util/date';
-import Avatar from './Avatar';
-import EditTweetForm from './EditTweetForm';
-
+import React, { memo, useState } from "react";
+import parseDate from "../util/date";
+import Avatar from "./Avatar";
+import EditTweetForm from "./EditTweetForm";
 
 const TweetCard = memo(
   ({ tweet, owner, onDelete, onUpdate, onUsernameClick }) => {
-    const {id, username, name, url, text, createdAt } = tweet;
+    const { id, username, name, url, text, createdAt } = tweet;
     const [editing, setEditing] = useState(false);
     const onClose = () => setEditing(false);
 
@@ -16,7 +15,7 @@ const TweetCard = memo(
           <Avatar url={url} name={name} />
           <div className="tweet-body">
             <span className="tweet-name">{name}</span>
-            <span 
+            <span
               className="tweet-username"
               onClick={() => onUsernameClick(tweet)}
             >
@@ -33,7 +32,7 @@ const TweetCard = memo(
             )}
           </div>
         </section>
-        { owner && (
+        {owner && (
           <div className="tweet-action">
             <button className="tweet-action-btn" onClick={() => onDelete(id)}>
               x
@@ -42,12 +41,14 @@ const TweetCard = memo(
               className="tweet-action-btn"
               onClick={() => setEditing(true)}
             >
-              ✏️
+              <span role="img" aria-label="pencil">
+                ✏️
+              </span>
             </button>
           </div>
         )}
       </li>
-    )
+    );
   }
 );
 
