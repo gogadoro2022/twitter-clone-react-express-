@@ -8,7 +8,7 @@ export default class AuthService {
 
   async me() {
     return {
-      username: 'ellie',
+      username: 'ellie',owjwe
       token: 'abc1234',
     };
   }
